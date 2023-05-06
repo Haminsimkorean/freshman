@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>의사</title>
+</head>
+<body>
+    <h1></h1>
+    <button onclick="sendPostRequest()">요청하기</button>
+    <script>
+       async function sendPostRequest() {
+       const response = await fetch('http://localhost:3000/doctorTell', {
+       method: 'POST',
+       headers: {
+       'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({
+       message: '늙지 않는 방법을 알려줘'
+    })
+    });
+
+       const data = await response.json();
+       console.log(data);
+    }
+
+     sendPostRequest();
+    </script>
+</body>
+</html>
